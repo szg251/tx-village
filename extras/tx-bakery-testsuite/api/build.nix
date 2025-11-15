@@ -16,7 +16,7 @@
           files = [ "Demo/Plutus.lbf" ];
           extraVersions = {
             "plutus-ledger-api" = {
-              version = "3.1.0";
+              version = "4.0.0-alpha";
               features = [
                 "chrono"
                 "lbf"
@@ -24,7 +24,6 @@
               git = "https://github.com/mlabs-haskell/plutus-ledger-api-rust";
               branch = "szg251/serde";
             };
-
           };
         };
 

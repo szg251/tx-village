@@ -3,6 +3,7 @@
   perSystem =
     {
       system,
+      inputs',
       pkgs,
       config,
       self',
@@ -22,7 +23,8 @@
         buildInputs = [ pkgs.postgresql_16.lib ];
 
         devShellTools = [
-          # self'.packages.tx-indexer-tests
+          self'.packages.tx-indexer-tests
+          inputs'.hydra.packages.hydra-node
         ];
 
         devShellHook = config.settings.shell.hook + ''

@@ -27,6 +27,8 @@
 
     cardano-node.url = "github:IntersectMBO/cardano-node/10.4.1";
 
+    hydra.url = "github:cardano-scaling/hydra";
+
     # Tools for integration testing
     process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
     services-flake.url = "github:juspay/services-flake";
