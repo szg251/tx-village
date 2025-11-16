@@ -26,6 +26,7 @@
               settings = {
                 ignored-words = [
                   "TypeLits"
+                  "Lits"
                   "BA"
                   "numer"
                 ];

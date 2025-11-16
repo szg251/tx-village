@@ -31,7 +31,7 @@
 
           # LB base schema and runtime libs
           inputs'.lbf.packages.lbf-prelude-rust
-          (inputs'.lbf.packages.lbf-plutus-rust.overrideAttrs (oldAttrs: {
+          (inputs'.lbf.packages.lbf-plutus-rust.overrideAttrs (_: {
             fixupPhase = ''
               echo "Applying custom postPatch command"
 
