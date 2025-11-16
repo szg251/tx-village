@@ -14,6 +14,17 @@
           name = "lbf-tx-bakery-tests-plutus-api";
           src = ./.;
           files = [ "Demo/Plutus.lbf" ];
+          extraVersions = {
+            "plutus-ledger-api" = {
+              version = "4.0.0-alpha";
+              features = [
+                "chrono"
+                "lbf"
+              ];
+              git = "https://github.com/mlabs-haskell/plutus-ledger-api-rust";
+              branch = "szg251/serde";
+            };
+          };
         };
 
         lbf-tx-bakery-tests-config-api-haskell = inputs.lbf.lib."${system}".lbfPreludeHaskell {
