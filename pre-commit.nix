@@ -20,6 +20,7 @@
             statix.enable = true;
             cabal-fmt.enable = true;
             fourmolu.enable = true;
+            ormolu.settings.cabalDefaultExtensions = true;
             hlint.enable = true;
             typos = {
               enable = true;
@@ -39,10 +40,6 @@
             markdownlint.enable = true;
             dhall-format.enable = true;
             purty.enable = true;
-          };
-
-          settings = {
-            ormolu.cabalDefaultExtensions = true;
           };
         };
       };

@@ -4,12 +4,18 @@
   inputs = {
     # LambdaBuffers as source of truth for many inputs
     lbf.url = "github:mlabs-haskell/lambda-buffers";
+    lbf.inputs.flake-lang.follows = "flake-lang";
 
     # Flake monorepo toolkit
-    flake-lang.follows = "lbf/flake-lang";
+    flake-lang.url = "github:mlabs-haskell/flake-lang.nix/szg251/use-haskell-nix-nixpkgs";
+
+    haskell-nix.follows = "flake-lang/haskell-nix";
 
     # Nix
-    nixpkgs.follows = "lbf/nixpkgs";
+    nixpkgs.follows = "flake-lang/nixpkgs";
+    ogmios.inputs.nixpkgs.follows = "nixpkgs";
+    cardano-devnet.inputs.nixpkgs.follows = "nixpkgs";
+
     flake-parts.follows = "lbf/flake-parts";
 
     # Code quality automation
@@ -38,7 +44,6 @@
         ./pkgs.nix
         ./settings.nix
         ./pre-commit.nix
-        ./hercules-ci.nix
         inputs.process-compose-flake.flakeModule
 
         # Libraries
