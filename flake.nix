@@ -7,13 +7,12 @@
     lbf.inputs.flake-lang.follows = "flake-lang";
 
     # Flake monorepo toolkit
-    flake-lang.url = "github:mlabs-haskell/flake-lang.nix/szg251/use-haskell-nix-nixpkgs";
+    flake-lang.url = "github:mlabs-haskell/flake-lang.nix?ref=szg251/use-haskell-nix-nixpkgs";
 
     haskell-nix.follows = "flake-lang/haskell-nix";
 
     # Nix
     nixpkgs.follows = "flake-lang/nixpkgs";
-    ogmios.inputs.nixpkgs.follows = "nixpkgs";
     cardano-devnet.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-parts.follows = "lbf/flake-parts";
@@ -26,7 +25,11 @@
     plutarch.follows = "lbf/plutarch";
 
     # Light-weight wrapper around cardano-node
-    ogmios.url = "github:mlabs-haskell/ogmios-nix/v6.11.2";
+    ogmios = {
+      url = "github:mlabs-haskell/ogmios-nix/v6.11.2";
+      inputs.haskell-nix.follows = "haskell-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Local Cardano devnet for integration testing
     cardano-devnet.url = "github:mlabs-haskell/cardano-devnet-flake";
