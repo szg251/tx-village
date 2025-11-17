@@ -1,0 +1,21 @@
+name: "Test all Nix derivations"
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  tests:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v5
+    - uses: cachix/install-nix-action@v31
+      with:
+        extra_nix_config: |
+          substituters = https://cache.iog.io https://tx-village.cachix.org
+          trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= tx-village.cachix.org-1:s83xVFZ7qdMtu9Pb82IMKIhqj+pJ9Fh2ufDgLA8zE/A=
+    - run: nix flake check

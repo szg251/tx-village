@@ -20,12 +20,14 @@
             statix.enable = true;
             cabal-fmt.enable = true;
             fourmolu.enable = true;
+            ormolu.settings.cabalDefaultExtensions = true;
             hlint.enable = true;
             typos = {
               enable = true;
               settings = {
                 ignored-words = [
                   "TypeLits"
+                  "Lits"
                   "BA"
                   "numer"
                 ];
@@ -38,10 +40,6 @@
             markdownlint.enable = true;
             dhall-format.enable = true;
             purty.enable = true;
-          };
-
-          settings = {
-            ormolu.cabalDefaultExtensions = true;
           };
         };
       };
